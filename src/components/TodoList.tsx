@@ -8,9 +8,10 @@ export interface TodoDataType {
 interface Props {
   todoData: TodoDataType[];
   changeCompleted: Function;
+  deleteTodo: Function;
 }
 
-export const TodoList: React.FC<Props> = ({ todoData, changeCompleted }): JSX.Element => {
+export const TodoList: React.FC<Props> = ({ todoData, changeCompleted, deleteTodo }): JSX.Element => {
 
   return (
     <>
@@ -24,7 +25,8 @@ export const TodoList: React.FC<Props> = ({ todoData, changeCompleted }): JSX.El
             key={`todo-${index}`} 
             index={index} 
             todoItem={item}
-            changeCompleted={changeCompleted} />)
+            changeCompleted={changeCompleted}
+            deleteTodo={deleteTodo} />)
           )
         }
       </div>

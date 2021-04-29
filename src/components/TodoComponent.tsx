@@ -17,11 +17,15 @@ export const TodoComponent: React.FC = (): JSX.Element => {
     setTodoData(newData);
   }
 
+  const deleteTodo = (index: number): void => {
+    setTodoData([...todoData.slice(0, index), ...todoData.slice(index + 1)]);
+  }
+
   return (
     <div>
       We are a component
       <TodoForm addTodo={addTodo} />
-      <TodoList todoData={todoData} changeCompleted={changeCompleted} />
+      <TodoList todoData={todoData} changeCompleted={changeCompleted} deleteTodo={deleteTodo} />
     </div>
   )
 }
