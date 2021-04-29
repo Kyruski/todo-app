@@ -11,11 +11,17 @@ export const TodoComponent: React.FC = (): JSX.Element => {
     setTodoData([...todoData, {todoText: text, completed: false}])
   }
 
+  const changeCompleted = (index: number): void => {
+    const newData = [...todoData];
+    newData[index].completed = !newData[index].completed;
+    setTodoData(newData);
+  }
+
   return (
     <div>
       We are a component
       <TodoForm addTodo={addTodo} />
-      <TodoList todoData={todoData} />
+      <TodoList todoData={todoData} changeCompleted={changeCompleted} />
     </div>
   )
 }
