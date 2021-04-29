@@ -1,8 +1,12 @@
 import React from 'react';
 import { TodoListItem } from './TodoListItem';
 
+export interface TodoDataType {
+  todoText: string;
+  completed: boolean;
+}
 interface Props {
-  todoData: string[];
+  todoData: TodoDataType[];
 }
 
 export const TodoList: React.FC<Props> = ({ todoData }): JSX.Element => {
