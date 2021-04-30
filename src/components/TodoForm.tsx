@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { TodoDataType } from './TodoList';
 
 interface Props {
   addTodo: Function;

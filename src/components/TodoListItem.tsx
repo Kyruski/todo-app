@@ -1,5 +1,5 @@
 import React from 'react';
-import { TodoDataType } from './TodoList';
+import { TodoDataType } from '../types';
 
 interface Props {
   todoItem: TodoDataType;

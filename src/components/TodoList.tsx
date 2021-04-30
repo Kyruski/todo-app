@@ -1,17 +1,14 @@
 import React from 'react';
+import { TodoDataType } from '../types';
 import { TodoListItem } from './TodoListItem';
 
-export interface TodoDataType {
-  todoText: string;
-  completed: boolean;
-}
 interface Props {
-  todoData: TodoDataType[];
+  todos: TodoDataType[];
   changeCompleted: Function;
   deleteTodo: Function;
 }
 
-export const TodoList: React.FC<Props> = ({ todoData, changeCompleted, deleteTodo }): JSX.Element => {
+export const TodoList: React.FC<Props> = ({ todos, changeCompleted, deleteTodo }): JSX.Element => {
 
   return (
     <>
@@ -20,7 +17,7 @@ export const TodoList: React.FC<Props> = ({ todoData, changeCompleted, deleteTod
       </h2>
       <div>
         {
-          todoData.map((item, index) => 
+          todos.map((item, index) => 
           (<TodoListItem 
             key={`todo-${index}`} 
             index={index} 
