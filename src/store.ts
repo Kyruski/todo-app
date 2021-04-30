@@ -4,8 +4,8 @@ import rootReducer from './reducers';
 
 
 
-const store = (state: any = initialState) => {
+const configureStore = (state: any = initialState) => {
   return createStore(rootReducer, state);
 }
 
-export default store;
+export default configureStore;
