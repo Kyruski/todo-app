@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import TodoComponent from './containers/TodoComponent';
+import { TodoComponent } from './components/TodoComponent';
 
 const App: Function = (): JSX.Element => {
   return (
