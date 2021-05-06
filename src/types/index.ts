@@ -1,5 +1,5 @@
 export interface TodoDataType {
-  todoText: string;
+  text: string;
   completed: boolean;
 }
 
