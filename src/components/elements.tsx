@@ -6,9 +6,18 @@ export const StyledInput = styled(TextField)`
 `;
 
 export const StyledTodoContainer = styled.div`
+  width: 600px;
+  margin: 0px auto;
+`;
+
+export const StyledInputForm = styled.form`
+  display: flex;
+  align-content: center;
+  justify-content: center;
 `;
 
 export const SubmitTodoButton = styled(Button)`
+  margin: 5px 0px 5px 10px;
 `;
 
 export const TodoListHeader = styled(Typography)`
@@ -18,8 +27,8 @@ export const TodoListHeader = styled(Typography)`
 `;
 
 export const StyledTodoList = styled.div`
+  width: 550px;
   margin: 0px auto;
-  width: 600px;
 `;
 
 export const StyledTodoItem = styled.div`
