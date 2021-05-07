@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const { ApolloServer } = require("apollo-server-express");
 const { typeDefs } = require('./gql/todo-schema');
 const { resolvers } = require('./gql/resolvers');
@@ -6,6 +7,8 @@ const { resolvers } = require('./gql/resolvers');
 const port = 3001;
 
 const app = express();
+
+app.use(cors());
 
 const server = new ApolloServer({ typeDefs, resolvers });
 

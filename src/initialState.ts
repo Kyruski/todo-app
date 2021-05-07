@@ -1,1 +1,1 @@
-export const initialState = [{todoText: 'Item1', completed: true}, {todoText: 'Item2', completed: false}, {todoText: 'Item3', completed: false}, {todoText: 'Item4', completed: false}];
+export const initialState = [{id: 123, text: '', completed: false}];

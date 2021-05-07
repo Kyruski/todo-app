@@ -1,5 +1,6 @@
 export interface TodoDataType {
-  todoText: string;
+  id: number;
+  text: string;
   completed: boolean;
 }
 

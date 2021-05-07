@@ -15,7 +15,7 @@ export const TodoListItem: React.FC<Props> = ({ todoItem, index, changeCompleted
 
   return (
     <div>
-      <strong style={style}>{todoItem.todoText}</strong>
+      <strong style={style}>{todoItem.text}</strong>
       <input 
         type="checkbox" 
         checked={todoItem.completed} 

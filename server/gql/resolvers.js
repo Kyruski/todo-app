@@ -32,7 +32,7 @@ const resolvers = {
     updateTodo: async (parent, args) => {
       try {
         const { todoId, todoInput } = args;
-        return await Todo.findOneAndUpdate(todoId, todoInput, { new: true });
+        return await Todo.findOneAndUpdate({_id: todoId}, todoInput, { new: true });
       } catch (error) {
         throw new Error(error);
       }
