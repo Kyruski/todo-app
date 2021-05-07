@@ -26,10 +26,10 @@ export const TodoComponent: React.FC = (): JSX.Element => {
   }
 
   const changeCompleted = async (index: number) => {
-    console.log(todoData[index]);
     const updateTodoData = await updateTodoMutator({variables: {id: todoData[index].id, completed: !todoData[index].completed, text: todoData[index].text}})
-    console.log(updateTodoData);
-    setTodoData([...todoData.slice(0, index), updateTodoData.data.updateTodo, ...todoData.slice(index + 1)]);
+    if (updateTodoData.data.updateTodo.id === todoData[index].id) {
+      setTodoData([...todoData.slice(0, index), updateTodoData.data.updateTodo, ...todoData.slice(index + 1)]);
+    }
   }
 
   const deleteTodo = async (index: number) => {
