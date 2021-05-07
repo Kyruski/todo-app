@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { StyledInput, SubmitTodoButton } from './elements';
 
 interface Props {
   addTodo: Function;
@@ -18,14 +19,15 @@ export const TodoForm: React.FC<Props> = ({ addTodo }): JSX.Element => {
 
   return (
     <form>
-    <input 
+    <StyledInput 
       type="text" 
       name="todo-input" 
       value={inputValue} 
       placeholder="Enter a new item To-Do" 
       onChange={(e) => {setInputValue(e.target.value)}}
+      label="Add a new Todo"
     />
-    <button onClick={(e) => handleSubmit(e)} >Submit</button>
+    <SubmitTodoButton variant="contained" onClick={(e) => handleSubmit(e)} >Submit</SubmitTodoButton>
     </form>
   )
 }
