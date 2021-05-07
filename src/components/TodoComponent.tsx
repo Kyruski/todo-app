@@ -1,7 +1,7 @@
-import { useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import React, { useEffect, useState } from 'react';
 import { initialState } from '../initialState';
-import { GET_TODOS } from '../queries';
+import { GET_TODOS, ADD_TODO } from '../gql_queries';
 import { TodoForm } from './TodoForm';
 import {TodoList} from './TodoList';
 
@@ -9,6 +9,7 @@ import {TodoList} from './TodoList';
 export const TodoComponent: React.FC = (): JSX.Element => {
   const {loading, error, data } = useQuery(GET_TODOS);
   const [todoData, setTodoData] = useState(initialState);
+  const [addTodoMutator] = useMutation(ADD_TODO)
 
   useEffect(() => {
     if (!loading && data) {
@@ -17,8 +18,9 @@ export const TodoComponent: React.FC = (): JSX.Element => {
   }, [loading, data])
 
 
-  const addTodo = (text: string): void => {
-    setTodoData([...todoData, {text, completed: false}])
+  const addTodo = async (text: string) => {
+    const addTodoData = await addTodoMutator({variables: {text}})
+    setTodoData([...todoData, addTodoData.data.addTodo])
   }
 
   const changeCompleted = (index: number): void => {
@@ -38,8 +40,9 @@ export const TodoComponent: React.FC = (): JSX.Element => {
     <div>
       We are a component
       <TodoForm addTodo={addTodo} />
-      {todoData ? 
-      (<TodoList todos={todoData} changeCompleted={changeCompleted} deleteTodo={deleteTodo} />) : null
+      {
+        loading ? (<div>Loading...</div>) :
+        (<TodoList todos={todoData} changeCompleted={changeCompleted} deleteTodo={deleteTodo} />)
       }
     </div>
   );
