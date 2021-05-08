@@ -15,7 +15,7 @@ export const TodoListItem: React.FC<Props> = ({ todoItem, index, changeCompleted
   const style = todoItem.completed ? {textDecoration: "line-through"} : {};
 
   return (
-    <StyledTodoItem>
+    <StyledTodoItem index={index}>
       <TodoItemText style={style}>{todoItem.text}</TodoItemText>
       <TodoCheckbox 
         color="primary"
@@ -24,7 +24,7 @@ export const TodoListItem: React.FC<Props> = ({ todoItem, index, changeCompleted
       />
       <DeleteTodoButton variant="contained" onClick={() => {
         deleteTodo(index);
-      }}>Delete</DeleteTodoButton>
+      }}>Remove</DeleteTodoButton>
     </StyledTodoItem>
   )
 }

@@ -31,17 +31,18 @@ export const StyledTodoList = styled.div`
   margin: 0px auto;
 `;
 
-export const StyledTodoItem = styled.div`
+export const StyledTodoItem = styled.div<{index: number}>`
+  background: ${({index}) => (index % 2 === 0 ? `#f4f0ec` : `#e5e4e2`)};
   padding: 0px 10px;
   min-height: 50px;
-  border: #d3d3d3 1px solid;
-  border-radius: 15px;
-  margin: 10px;
+  border-radius: 5px;
+  margin: 2px 0px;
   display: flex;
   align-items: center;
 `;
 
 export const DeleteTodoButton = styled(Button)`
+  background: #f5f5f5;
   height: 30px;
   flex-basis: 5rem;
 `;
