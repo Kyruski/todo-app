@@ -1,5 +1,6 @@
 import React from 'react';
 import { TodoDataType } from '../types';
+import { DeleteTodoButton, StyledTodoItem, TodoCheckbox, TodoItemText } from './elements';
 
 interface Props {
   todoItem: TodoDataType;
@@ -14,16 +15,16 @@ export const TodoListItem: React.FC<Props> = ({ todoItem, index, changeCompleted
   const style = todoItem.completed ? {textDecoration: "line-through"} : {};
 
   return (
-    <div>
-      <strong style={style}>{todoItem.text}</strong>
-      <input 
-        type="checkbox" 
+    <StyledTodoItem index={index}>
+      <TodoItemText style={style}>{todoItem.text}</TodoItemText>
+      <TodoCheckbox 
+        color="primary"
         checked={todoItem.completed} 
         onClick={() => changeCompleted(index)} 
       />
-      <button onClick={() => {
+      <DeleteTodoButton variant="contained" onClick={() => {
         deleteTodo(index);
-      }}>Delete</button>
-    </div>
+      }}>Remove</DeleteTodoButton>
+    </StyledTodoItem>
   )
 }

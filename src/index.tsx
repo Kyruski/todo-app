@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { StylesProvider } from '@material-ui/styles';
 
 const serverURI = 'http://localhost:3001/graphql';
 
@@ -16,7 +17,9 @@ const client = new ApolloClient({
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client} >
-      <App />
+      <StylesProvider injectFirst>
+        <App />
+      </StylesProvider>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')

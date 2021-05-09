@@ -4,6 +4,8 @@ import { initialState } from '../initialState';
 import { GET_TODOS, ADD_TODO, DELETE_TODO, UPDATE_TODO } from '../gql_queries';
 import { TodoForm } from './TodoForm';
 import {TodoList} from './TodoList';
+import { Box } from '@material-ui/core';
+import { StyledTodoContainer } from './elements';
 
 
 export const TodoComponent: React.FC = (): JSX.Element => {
@@ -42,13 +44,13 @@ export const TodoComponent: React.FC = (): JSX.Element => {
   if (error) return (<div>Error! {error.message}</div>);
 
   return (
-    <div>
-      We are a component
+    <StyledTodoContainer>
       <TodoForm addTodo={addTodo} />
       {
         loading ? (<div>Loading...</div>) :
         (<TodoList todos={todoData} changeCompleted={changeCompleted} deleteTodo={deleteTodo} />)
       }
-    </div>
+
+    </StyledTodoContainer>
   );
 }
