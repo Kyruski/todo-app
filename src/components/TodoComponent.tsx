@@ -50,6 +50,7 @@ export const TodoComponent: React.FC = (): JSX.Element => {
         loading ? (<div>Loading...</div>) :
         (<TodoList todos={todoData} changeCompleted={changeCompleted} deleteTodo={deleteTodo} />)
       }
+
     </StyledTodoContainer>
   );
 }
