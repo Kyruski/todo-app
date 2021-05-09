@@ -1,7 +1,11 @@
 const { mongoose } = require("./db");
 
 const todoSchema = new mongoose.Schema({
-  text: {
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
     type: String,
     required: true,
   },

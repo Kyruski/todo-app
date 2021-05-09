@@ -1,7 +1,8 @@
-import { Button, Checkbox, TextField, Typography } from '@material-ui/core';
+
+import { Button, Checkbox, TextareaAutosize, TextField, Typography } from '@material-ui/core';
 import styled from 'styled-components';
 
-export const StyledInput = styled(TextField)`
+export const StyledTitleInput = styled(TextField)`
   width: 450px;
 `;
 
@@ -11,9 +12,11 @@ export const StyledTodoContainer = styled.div`
 `;
 
 export const StyledInputForm = styled.form`
-  display: flex;
-  align-content: center;
-  justify-content: center;
+
+`;
+
+export const StyledDescriptionInput = styled(TextareaAutosize)`
+  resize: none;
 `;
 
 export const SubmitTodoButton = styled(Button)`
@@ -47,7 +50,13 @@ export const DeleteTodoButton = styled(Button)`
   flex-basis: 5rem;
 `;
 
-export const TodoItemText = styled(Typography)`
+
+export const TodoTitleText = styled(Typography)`
+  flex-basis: 29rem;
+  text-align: left;
+`;
+
+export const TodoDescriptionText = styled(Typography)`
   flex-basis: 29rem;
   text-align: left;
 `;
