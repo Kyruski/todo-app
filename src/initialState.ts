@@ -1,1 +1,1 @@
-export const initialState = [{id: 123, text: '', completed: false}];
+export const initialState = [{id: 123, title: '', description: '', completed: false}];
