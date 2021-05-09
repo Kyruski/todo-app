@@ -1,3 +1,4 @@
+
 import { Button, Checkbox, TextareaAutosize, TextField, Typography } from '@material-ui/core';
 import styled from 'styled-components';
 
@@ -11,10 +12,11 @@ export const StyledTodoContainer = styled.div`
 `;
 
 export const StyledInputForm = styled.form`
+
 `;
 
 export const StyledDescriptionInput = styled(TextareaAutosize)`
-  resize: none
+  resize: none;
 `;
 
 export const SubmitTodoButton = styled(Button)`
@@ -47,6 +49,7 @@ export const DeleteTodoButton = styled(Button)`
   height: 30px;
   flex-basis: 5rem;
 `;
+
 
 export const TodoTitleText = styled(Typography)`
   flex-basis: 29rem;
