@@ -11,10 +11,11 @@ export const StyledTodoContainer = styled.div`
 `;
 
 export const StyledInputForm = styled.form`
+
 `;
 
 export const StyledDescriptionInput = styled(TextareaAutosize)`
-  resize: none
+  resize: none;
 `;
 
 export const SubmitTodoButton = styled(Button)`
