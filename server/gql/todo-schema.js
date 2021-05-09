@@ -3,12 +3,14 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type Todo {
     id: ID!
-    text: String!
+    title: String!
+    description: String!
     completed: Boolean!
   }
 
   input TodoInput {
-    text: String!
+    title: String!
+    description: String!
     completed: Boolean!
   }
 

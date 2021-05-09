@@ -7,14 +7,25 @@ interface Props {
 
 export const TodoForm: React.FC<Props> = ({ addTodo }): JSX.Element => {
 
-  const [inputValue, setInputValue] = useState("");
+  const [titleInputValue, setTitleInputValue] = useState("");
+  const [descriptionInputValue, setDescriptionInputValue] = useState("")
+  const [error, setError] = useState("");
 
   const handleSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
     // setTodoData()
-    if (!inputValue) return;
-    addTodo(inputValue);
-    setInputValue("");
+    if (!titleInputValue) {
+      setError('People enter a Title');
+      return;
+    }
+    if (!descriptionInputValue) {
+      setError('People enter a Description');
+      return;
+    }
+    addTodo(titleInputValue, descriptionInputValue);
+    setTitleInputValue("");
+    setDescriptionInputValue("");
+    setError("");
   }
 
   return (
@@ -22,10 +33,18 @@ export const TodoForm: React.FC<Props> = ({ addTodo }): JSX.Element => {
       <StyledInputForm>
         <StyledInput 
           type="text" 
-          name="todo-input" 
-          value={inputValue} 
+          name="todo-title-input" 
+          value={titleInputValue} 
           placeholder="Enter a new item To-Do" 
-          onChange={(e) => {setInputValue(e.target.value)}}
+          onChange={(e) => {setTitleInputValue(e.target.value)}}
+          label="Add a new Todo"
+        /><br />
+        <StyledInput 
+          type="text" 
+          name="todo-description-input" 
+          value={descriptionInputValue} 
+          placeholder="Enter a new item To-Do" 
+          onChange={(e) => {setDescriptionInputValue(e.target.value)}}
           label="Add a new Todo"
         />
         <SubmitTodoButton variant="contained" onClick={(e) => handleSubmit(e)} >Submit</SubmitTodoButton>

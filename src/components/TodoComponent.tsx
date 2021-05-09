@@ -22,8 +22,8 @@ export const TodoComponent: React.FC = (): JSX.Element => {
   }, [loading, data])
 
 
-  const addTodo = async (text: string) => {
-    const addTodoData = await addTodoMutator({variables: {text}})
+  const addTodo = async (title: string, description: string) => {
+    const addTodoData = await addTodoMutator({variables: {title, description}})
     setTodoData([...todoData, addTodoData.data.addTodo])
   }
 
@@ -48,7 +48,9 @@ export const TodoComponent: React.FC = (): JSX.Element => {
       <TodoForm addTodo={addTodo} />
       {
         loading ? (<div>Loading...</div>) :
-        (<TodoList todos={todoData} changeCompleted={changeCompleted} deleteTodo={deleteTodo} />)
+        todoData.length ?
+        (<TodoList todos={todoData} changeCompleted={changeCompleted} deleteTodo={deleteTodo} />) :
+        (<div> You have no Todos </div>)
       }
     </StyledTodoContainer>
   );
