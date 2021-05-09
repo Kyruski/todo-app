@@ -1,11 +1,13 @@
 export interface TodoDataType {
   id: number;
-  text: string;
+  title: string;
+  description: string;
   completed: boolean;
 }
 
 export interface Payload {
   type: string;
-  text?: string;
+  title?: string;
+  description?: string;
   index?: number;
 }

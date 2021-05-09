@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { initialState } from '../initialState';
 import { GET_TODOS, ADD_TODO, DELETE_TODO, UPDATE_TODO } from '../gql_queries';
 import { TodoForm } from './TodoForm';
-import {TodoList} from './TodoList';
+import { TodoList } from './TodoList';
 import { Box } from '@material-ui/core';
 import { StyledTodoContainer } from './elements';
 
@@ -22,13 +22,13 @@ export const TodoComponent: React.FC = (): JSX.Element => {
   }, [loading, data])
 
 
-  const addTodo = async (text: string) => {
-    const addTodoData = await addTodoMutator({variables: {text}})
+  const addTodo = async (title: string, description: string) => {
+    const addTodoData = await addTodoMutator({variables: {title, description}})
     setTodoData([...todoData, addTodoData.data.addTodo])
   }
 
   const changeCompleted = async (index: number) => {
-    const updateTodoData = await updateTodoMutator({variables: {id: todoData[index].id, completed: !todoData[index].completed, text: todoData[index].text}})
+    const updateTodoData = await updateTodoMutator({variables: {id: todoData[index].id, completed: !todoData[index].completed, title: todoData[index].title, description: todoData[index].description}})
     if (updateTodoData.data.updateTodo.id === todoData[index].id) {
       setTodoData([...todoData.slice(0, index), updateTodoData.data.updateTodo, ...todoData.slice(index + 1)]);
     }
@@ -48,9 +48,10 @@ export const TodoComponent: React.FC = (): JSX.Element => {
       <TodoForm addTodo={addTodo} />
       {
         loading ? (<div>Loading...</div>) :
-        (<TodoList todos={todoData} changeCompleted={changeCompleted} deleteTodo={deleteTodo} />)
+        todoData.length ?
+        (<TodoList todos={todoData} changeCompleted={changeCompleted} deleteTodo={deleteTodo} />) :
+        (<div> You have no Todos </div>)
       }
-
     </StyledTodoContainer>
   );
 }
