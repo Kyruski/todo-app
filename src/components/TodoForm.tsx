@@ -15,11 +15,11 @@ export const TodoForm: React.FC<Props> = ({ addTodo }): JSX.Element => {
     e.preventDefault();
     // setTodoData()
     if (!titleInputValue) {
-      setError('People enter a Title');
+      setError('Please enter a Title');
       return;
     }
     if (!descriptionInputValue) {
-      setError('People enter a Description');
+      setError('Please enter a Description');
       return;
     }
     addTodo(titleInputValue, descriptionInputValue);
@@ -36,6 +36,9 @@ export const TodoForm: React.FC<Props> = ({ addTodo }): JSX.Element => {
           name="todo-title-input" 
           value={titleInputValue} 
           placeholder="Enter a Title" 
+          inputProps={{
+            maxLength: 40,
+          }}
           onChange={(e) => {setTitleInputValue(e.target.value)}}
           label="Add a new Todo"
         /><br />
@@ -47,6 +50,7 @@ export const TodoForm: React.FC<Props> = ({ addTodo }): JSX.Element => {
           placeholder="Enter a new item To-Do" 
           onChange={(e) => {setDescriptionInputValue(e.target.value)}}
         /><br />
+        <div style={{color: 'red'}}>{error}</div>
         <SubmitTodoButton variant="contained" onClick={(e) => handleSubmit(e)} >Submit</SubmitTodoButton>
       </StyledInputForm>
     </div>
