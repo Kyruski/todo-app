@@ -2,8 +2,21 @@
 import { Button, Checkbox, Link, TextareaAutosize, TextField, Typography } from '@material-ui/core';
 import styled from 'styled-components';
 
-export const StyledInputForm = styled.form`
+const colors = {
+  itemLightGrey: `#eae9e7`,
+  itemDarkGrey: `#cecdcb`,
+}
 
+export const StyledTodoContainer = styled.div`
+  width: 600px;
+  margin: 0px auto;
+  border: 3px #cccccc solid;
+  border-radius: 15px;
+`;
+
+export const StyledInputForm = styled.form`
+  padding: 10px 0px;
+  border-bottom: 2px #cccccc solid;
 `;
 
 export const StyledTitleInput = styled(TextField)`
@@ -13,11 +26,6 @@ export const StyledTitleInput = styled(TextField)`
 
 export const StyledDescriptionInput = styled(TextareaAutosize)`
   resize: none;
-`;
-
-export const StyledTodoContainer = styled.div`
-  width: 600px;
-  margin: 0px auto;
 `;
 
 export const SubmitTodoButton = styled(Button)`
@@ -33,6 +41,7 @@ export const TodoListHeader = styled(Typography)`
 export const StyledTodoList = styled.div`
   width: 550px;
   margin: 0px auto;
+  padding: 0px 0px 20px 0px;
 `;
 
 export const StyledTodoItemHeader = styled.div`
@@ -44,16 +53,22 @@ export const StyledTodoItemHeader = styled.div`
   align-items: center;
 `;
 export const StyledTodoItemContainer = styled.div<{index: number, isOpen: boolean}>`
-  background: ${({index}) => (index % 2 === 0 ? `#eae9e7` : `#cecdcb`)};
+  background: ${({index}) => (index % 2 === 0 ? colors.itemLightGrey : colors.itemDarkGrey)};
   border-radius: 10px;
 `;
 
 export const TodoDescriptionTextContainer = styled.div<{index: number, isOpen: boolean}>`
   border-radius: 0px 0px 10px 10px;
-  border-left: 0px 2px 2px 2px ${({index}) => (index % 2 === 0 ? `#eae9e7` : `#cecdcb`)} solid;
-  border-right: 2px ${({index}) => (index % 2 === 0 ? `#eae9e7` : `#cecdcb`)} solid;
-  border-bottom: 2px ${({index}) => (index % 2 === 0 ? `#eae9e7` : `#cecdcb`)} solid;
+  border-left: 3px ${({index}) => (index % 2 === 0 ? colors.itemLightGrey : colors.itemDarkGrey)} solid;
+  border-right: 3px ${({index}) => (index % 2 === 0 ? colors.itemLightGrey : colors.itemDarkGrey)} solid;
+  border-bottom: 3px ${({index}) => (index % 2 === 0 ? colors.itemLightGrey : colors.itemDarkGrey)} solid;
   background: #faf9f7;
+`;
+
+export const TodoTitleText = styled(Link)`
+  flex-basis: 29rem;
+  text-align: left;
+  padding: 0px 0px 0px 5px;
 `;
 
 export const TodoDescriptionText = styled(Typography)`
@@ -67,12 +82,6 @@ export const DeleteTodoButton = styled(Button)`
   background: #f5f5f5;
   height: 30px;
   flex-basis: 5rem;
-`;
-
-
-export const TodoTitleText = styled(Link)`
-  flex-basis: 29rem;
-  text-align: left;
 `;
 
 export const TodoCheckbox = styled(Checkbox)`
