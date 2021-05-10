@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { StylesProvider } from '@material-ui/styles';
 
-const serverURI = 'http://localhost:3001/graphql';
+const serverURI = '/graphql';
 
 const client = new ApolloClient({
   uri: serverURI,
