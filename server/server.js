@@ -5,7 +5,7 @@ const { ApolloServer } = require("apollo-server-express");
 const { typeDefs } = require('./gql/todo-schema');
 const { resolvers } = require('./gql/resolvers');
 
-const port = 3001;
+const port = 3000;
 
 const app = express();
 

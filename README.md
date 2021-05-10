@@ -1,6 +1,22 @@
-# Getting Started with Create React App
+# Todo-App
+
+This is a practice Todo application with the ability to create todos with a title and description. Afterwards, you can toggle a todo item as completed, or delete the todo.
+
+## Built With
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+In addition, this project utilizes the following technologies/packages:
+
+`Apollo GraphQL (server and client)`
+
+`ExpressJS`
+
+`Typescript`
+
+`Styled Components`
+
+`Material UI`
 
 ## Available Scripts
 
@@ -8,18 +24,26 @@ In the project directory, you can run:
 
 ### `yarn start`
 
+Runs the app if you have already created a bundle. If you haven't created a bundle yet, you can instead run to following command
+
+### `yarn build-start`
+
+Builds the bundle file and then starts the server
+
+### `yarn cra-start`
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `yarn cra-test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### `yarn cra-build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,7 +53,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### `yarn cra-eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
