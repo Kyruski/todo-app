@@ -10,6 +10,8 @@ In addition, this project utilizes the following technologies/packages:
 
 `Apollo GraphQL (server and client)`
 
+`MongoDB w/ Mongoose`
+
 `ExpressJS`
 
 `Typescript`
@@ -17,6 +19,45 @@ In addition, this project utilizes the following technologies/packages:
 `Styled Components`
 
 `Material UI`
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+[Node](http://nodejs.org/) and [yarn](https://yarnpkg.com/) are required.
+
+It is recommended to install Node using Node Version Manager (NVM).
+
+The following is a tutorial on how to install NVM: [Install Node via NVM](https://nodesource.com/blog/installing-node-js-tutorial-using-nvm-on-mac-os-x-and-ubuntu/).
+
+```
+You should be able to run the following command after the installation procedure
+below.
+
+% nvm ls
+->     v14.16.0
+
+% yarn --version
+  1.22.10
+```
+
+### Installing
+
+A step by step series of examples that tell you how to get the server running.
+
+Once you are in the terminal and have changed your current directory to the repo, run the following command to install all necessary dependencies, populate the sample data, build the bundle, and open the app:
+
+```
+yarn build-start
+```
+
+Alternatively, to open the App once closed:
+
+```
+yarn start
+```
 
 ## Available Scripts
 
