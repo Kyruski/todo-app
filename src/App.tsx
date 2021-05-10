@@ -6,7 +6,7 @@ const App: Function = (): JSX.Element => {
   return (
     <div className="App">
       <h1>
-        Hello World
+        To-do App
       </h1>
       <TodoComponent />
     </div>

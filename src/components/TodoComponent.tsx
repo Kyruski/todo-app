@@ -4,8 +4,7 @@ import { initialState } from '../initialState';
 import { GET_TODOS, ADD_TODO, DELETE_TODO, UPDATE_TODO } from '../gql_queries';
 import { TodoForm } from './TodoForm';
 import { TodoList } from './TodoList';
-import { Box } from '@material-ui/core';
-import { StyledTodoContainer } from './elements';
+import { StyledTodoContainer, TodoListHeader } from './elements';
 
 
 export const TodoComponent: React.FC = (): JSX.Element => {
@@ -14,6 +13,7 @@ export const TodoComponent: React.FC = (): JSX.Element => {
   const [addTodoMutator] = useMutation(ADD_TODO);
   const [deleteTodoMutator] = useMutation(DELETE_TODO);
   const [updateTodoMutator] = useMutation(UPDATE_TODO);
+  const [openTodo, setOpenTodo] = useState(-1);
   
   useEffect(() => {
     if (!loading && data) {
@@ -31,6 +31,7 @@ export const TodoComponent: React.FC = (): JSX.Element => {
     const updateTodoData = await updateTodoMutator({variables: {id: todoData[index].id, completed: !todoData[index].completed, title: todoData[index].title, description: todoData[index].description}})
     if (updateTodoData.data.updateTodo.id === todoData[index].id) {
       setTodoData([...todoData.slice(0, index), updateTodoData.data.updateTodo, ...todoData.slice(index + 1)]);
+      if (openTodo === index) setOpenTodo(-1);
     }
   }
 
@@ -46,10 +47,13 @@ export const TodoComponent: React.FC = (): JSX.Element => {
   return (
     <StyledTodoContainer>
       <TodoForm addTodo={addTodo} />
+      <TodoListHeader>
+        Todo List
+      </TodoListHeader>
       {
         loading ? (<div>Loading...</div>) :
         todoData.length ?
-        (<TodoList todos={todoData} changeCompleted={changeCompleted} deleteTodo={deleteTodo} />) :
+        (<TodoList todos={todoData} openTodo={openTodo} setOpenTodo={setOpenTodo} changeCompleted={changeCompleted} deleteTodo={deleteTodo} />) :
         (<div> You have no Todos </div>)
       }
     </StyledTodoContainer>
