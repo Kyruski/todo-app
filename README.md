@@ -26,7 +26,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-[Node](http://nodejs.org/) and [yarn](https://yarnpkg.com/) are required.
+[Node](http://nodejs.org/) and [yarn](https://yarnpkg.com/) are required, as well as a running [MongoDB](https://www.mongodb.com/).
 
 It is recommended to install Node using Node Version Manager (NVM).
 
@@ -43,11 +43,13 @@ below.
   1.22.10
 ```
 
+Additionally, Make sure you have an accessible MongoDB. Add the DB location to your `.env` file as `DATABASE_URL=[your url]` without the brackets.
+
 ### Installing
 
 A step by step series of examples that tell you how to get the server running.
 
-Once you are in the terminal and have changed your current directory to the repo, run the following command to install all necessary dependencies, populate the sample data, build the bundle, and open the app:
+Once you are in the terminal and have changed your current directory to the repo, run the following command to install all necessary dependencies, build the bundle, and run the app:
 
 ```
 yarn build-start
