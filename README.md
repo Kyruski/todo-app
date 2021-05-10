@@ -24,11 +24,12 @@ In the project directory, you can run:
 
 ### `yarn start`
 
-Runs the app if you have already created a bundle. If you haven't created a bundle yet, you can instead run to following command
+Runs the app if you have already created a bundle. Open [http://localhost:3000](http://localhost:3000) to view it in the browser. If you haven't created a bundle yet, you can instead run to following command
 
 ### `yarn build-start`
 
 Builds the bundle file and then starts the server
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `yarn cra-start`
 
