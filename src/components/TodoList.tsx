@@ -1,21 +1,18 @@
 import React from 'react';
 import { TodoDataType } from '../types';
-import { StyledTodoList, TodoListHeader } from './elements';
+import { StyledTodoList } from './elements';
 import { TodoListItem } from './TodoListItem';
 
 interface Props {
   todos: TodoDataType[];
   changeCompleted: Function;
   deleteTodo: Function;
+  openTodo: number;
+  setOpenTodo: Function
 }
 
-export const TodoList: React.FC<Props> = ({ todos, changeCompleted, deleteTodo }): JSX.Element => {
-
+export const TodoList: React.FC<Props> = ({ todos, changeCompleted, openTodo, setOpenTodo, deleteTodo }): JSX.Element => {
   return (
-    <>
-      <TodoListHeader>
-        Todo List
-      </TodoListHeader>
       <StyledTodoList>
         {
           todos.map((item, index) => 
@@ -23,11 +20,12 @@ export const TodoList: React.FC<Props> = ({ todos, changeCompleted, deleteTodo }
             key={`todo-${index}`} 
             index={index} 
             todoItem={item}
+            isOpen={index === openTodo}
+            setOpenTodo={setOpenTodo}
             changeCompleted={changeCompleted}
             deleteTodo={deleteTodo} />)
           )
         }
       </StyledTodoList>
-    </>
   )
 }
