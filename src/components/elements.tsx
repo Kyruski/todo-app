@@ -5,18 +5,19 @@ import styled from 'styled-components';
 const colors = {
   itemLightGrey: `#eae9e7`,
   itemDarkGrey: `#cecdcb`,
+  borderColor: `#cccccc`,
 }
 
 export const StyledTodoContainer = styled.div`
   width: 600px;
   margin: 0px auto;
-  border: 3px #cccccc solid;
+  border: 3px ${colors.borderColor} solid;
   border-radius: 15px;
 `;
 
 export const StyledInputForm = styled.form`
   padding: 10px 0px;
-  border-bottom: 2px #cccccc solid;
+  border-bottom: 2px ${colors.borderColor} solid;
 `;
 
 export const StyledTitleInput = styled(TextField)`
